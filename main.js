@@ -14,7 +14,45 @@ const rl = readline.createInterface({
 const pigLatin = (word) => {
 
   // Your code here
+  //trim whitespace
+  word = word.trim();
+  //make the word lowercase
+  word = word.toLowerCase();
+  // Your code here
+//assign a letter catcher
+ let firstLetter = word[0];
+ let secondLetter = word[1];
+ if (firstLetter === "c" && secondLetter === "r") {
+   return create(word);
+ }
+// 1. if word begins with a vowel send to one function: adds "yay"
+ else if (firstLetter === "a" || firstLetter === "e" || firstLetter === "i" || firstLetter === "o" || firstLetter === "u") {
+  return yay(word);
+ }else {
+   return ay(word);
+ }
+// 2. if word begins in with a consonant send to another function: splices off beginning, returns word with new ending.
+// 3. if multiple words, create array of words, loop over them, sending them to different functions and creating a new array with the new words.
 
+
+}
+
+const yay = (word) => {
+  let newWord = word + "yay";
+  return newWord;
+}
+// pigLatin("eat");
+
+const ay = (word) => {
+  let firstLetter = word[0];
+  let newWord2 = word.substring(1) + firstLetter + "ay";
+  return newWord2;
+}
+const create = (word) => {
+  let firstLetter = word[0];
+  let secondLetter = word[1]; 
+  let newWord3 = word.substring(2) + firstLetter + secondLetter + "ay";
+  return newWord3;
 }
 
 // the first function called in the program to get an input from the user
