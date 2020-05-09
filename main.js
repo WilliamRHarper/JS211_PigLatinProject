@@ -11,10 +11,22 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
-
+const pigLatin = (string) => {
   // Your code here
-  //trim whitespace
+  let resultArray = [];
+  let result = "";
+let stringArray = string.split(" ");
+for (let i = 0; i < stringArray.length; i++){
+  let word = stringArray[i];
+  resultArray.push(pigLatinHelper(word));
+  result += resultArray[i].toString();
+
+}
+return result;
+}
+
+const pigLatinHelper = (word) => {
+    //trim whitespace
   word = word.trim();
   //make the word lowercase
   word = word.toLowerCase();
@@ -22,37 +34,36 @@ const pigLatin = (word) => {
 //assign a letter catcher
  let firstLetter = word[0];
  let secondLetter = word[1];
- if (firstLetter === "c" && secondLetter === "r") {
-   return create(word);
+ let thirdLetter = word[2];
+ let fourthLetter = word[3];
+ let result = ""; 
+ const vowel = ["a","e","i","o","u"];
+ for (let i = 0; i < vowel.length; i++) {
+
+//  }
+// if (word.indexOf(vowel[i]) === -1) {
+//   result = word.substring(1) + firstLetter + "ay";
+// }
+  if (firstLetter === vowel[i]){
+   result = word + "yay";
+   break;
  }
-// 1. if word begins with a vowel send to one function: adds "yay"
- else if (firstLetter === "a" || firstLetter === "e" || firstLetter === "i" || firstLetter === "o" || firstLetter === "u") {
-  return yay(word);
- }else {
-   return ay(word);
+   else if (secondLetter === vowel[i] || secondLetter === "y") {
+    result = word.substring(1) + firstLetter + "ay";
+  }
+  else if (thirdLetter === vowel[i]) {
+   result = word.substring(2) + firstLetter + secondLetter + "ay";
  }
-// 2. if word begins in with a consonant send to another function: splices off beginning, returns word with new ending.
-// 3. if multiple words, create array of words, loop over them, sending them to different functions and creating a new array with the new words.
 
+ else if (fourthLetter === vowel[i]) {
+   result = word.substring(3) + firstLetter + secondLetter + thirdLetter + "ay";
+ }
+// else if (word.indexOf(vowel[i]) === -1) {
+//   result = word.substring(1) + firstLetter + "ay";
+// }
 
 }
-
-const yay = (word) => {
-  let newWord = word + "yay";
-  return newWord;
-}
-// pigLatin("eat");
-
-const ay = (word) => {
-  let firstLetter = word[0];
-  let newWord2 = word.substring(1) + firstLetter + "ay";
-  return newWord2;
-}
-const create = (word) => {
-  let firstLetter = word[0];
-  let secondLetter = word[1]; 
-  let newWord3 = word.substring(2) + firstLetter + secondLetter + "ay";
-  return newWord3;
+return result;
 }
 
 // the first function called in the program to get an input from the user
