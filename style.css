@@ -1,0 +1,59 @@
+header {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+}
+body {
+ background-image: url("the-roman-coliseum-in-the-early-morning-655490208-5a750519875db90037324138.jpg");  
+}
+
+h1 {
+    font-size: 90px;
+    color: maroon;
+}
+
+#directions {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 35px;
+    color: maroon;
+}
+
+input {
+    width: 30%;
+    height: 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: navy;
+    background-color: tan;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+#translate {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    color: maroon;
+    background-color: tan;
+    font-size: 25px;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: maroon;
+}

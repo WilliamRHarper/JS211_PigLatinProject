@@ -13,13 +13,15 @@ const rl = readline.createInterface({
 
 const pigLatin = (string) => {
   // Your code here
+  string = string.trim();
+  string = string.toLowerCase();
   let resultArray = [];
   let result = "";
 let stringArray = string.split(" ");
 for (let i = 0; i < stringArray.length; i++){
   let word = stringArray[i];
   resultArray.push(pigLatinHelper(word));
-  result += resultArray[i].toString();
+  result = resultArray.join(" ");
 
 }
 return result;
